@@ -17,6 +17,10 @@ echo Installing SBCL...
 cd /usr/ports/lang/sbcl
 make install
 
+echo Installing Links...
+cd /usr/ports/www/links
+make install
+
 echo Installing XOrg...
 cd /usr/ports/x11/xorg
 make install
