@@ -2,6 +2,13 @@
 
 set -e
 
+echo Installing SVN...
+cd /usr/ports/devel/subversion
+make && make install
+
+echo Getting kernel sources...
+svn co svn://svn.freebsd.org/base/stable/10 /usr/src
+
 echo Installing Git...
 cd /usr/ports/devel/git
 make && make install
