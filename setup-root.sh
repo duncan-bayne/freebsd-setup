@@ -25,3 +25,19 @@ echo Installing XOrg...
 cd /usr/ports/x11/xorg
 make install
 
+echo Installing ccrypt...
+cd /usr/ports/security/ccrypt
+make install
+
+echo Installing Unison...
+cd /usr/ports/net/unison
+make install
+
+echo Installing Ruby...
+cd /usr/ports/lang/ruby
+make install
+
+echo Installing Emacs...
+cd /usr/ports/editors/emacs
+make install
+
