@@ -28,12 +28,19 @@ cd /usr/ports/ports-mgmt/portmaster
 make clean install
 
 echo Installing and configuring ports...
-portmaster x11/xorg
+portmaster devel/git
+portmaster editors/emacs
+portmaster lang/ruby21
+portmaster lang/sbcl
+portmaster net/unison
+portmaster security/ccrypt
+portmaster www/chromium
+portmaster www/firefox
+portmaster www/links
 portmaster x11-drivers/xf86-input-keyboard
 portmaster x11-drivers/xf86-input-mouse
 portmaster x11/terminator
-portmaster www/chromium
-portmaster www/firefox
+portmaster x11/xorg
 
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/rc.conf;
 then
@@ -62,16 +69,3 @@ else
     echo kern.ipc.shm_allow_removed=1 >> /etc/sysctl.conf
     echo >> /etc/sysctl.conf
 fi
-
-portmaster lang/sbcl
-
-# TODO: install these with portmaster
-# git
-# firefox
-# chromium (including shared-memory enable)
-# links
-# ccrypt
-# unison
-# ruby21
-# emacs
-
