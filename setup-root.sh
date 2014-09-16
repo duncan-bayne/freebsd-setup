@@ -28,6 +28,7 @@ cd /usr/ports/ports-mgmt/portmaster
 make clean install
 
 echo Installing and configuring ports...
+portmaster databases/freetds
 portmaster databases/mysql56-client
 portmaster databases/mysql56-server
 portmaster devel/git
