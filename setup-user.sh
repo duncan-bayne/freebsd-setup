@@ -4,6 +4,8 @@ set -e
 
 ./install_rbenv.sh
 
+git config --global push.default matching
+
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" ~/.profile;
 then
     echo Shell confugration extras already added to ~/.profile.

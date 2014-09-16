@@ -18,3 +18,5 @@ alias gss='git stash save'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+export LC_ALL="en_AU.UTF-8"
