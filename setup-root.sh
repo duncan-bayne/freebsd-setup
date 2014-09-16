@@ -2,6 +2,9 @@
 
 set -e
 
+# don't put this in /etc/make.conf; I think we could, but hilarity might ensure later :-|
+export BATCH=yes
+
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/make.conf;
 then
     echo Custom build options already added to /etc/make.conf.
@@ -24,10 +27,13 @@ echo Installing portmaster...
 cd /usr/ports/ports-mgmt/portmaster
 make clean install
 
+echo Installing and configuring ports...
 portmaster x11/xorg
 portmaster x11-drivers/xf86-input-keyboard
 portmaster x11-drivers/xf86-input-mouse
 portmaster x11/terminator
+portmaster www/chromium
+portmaster www/firefox
 
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/rc.conf;
 then
@@ -39,6 +45,22 @@ else
     echo hald_enable=\"YES\" >> /etc/rc.conf
     echo dbus_enable=\"YES\" >> /etc/rc.conf
     echo >> /etc/rc.conf
+fi
+
+if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/sysctl.conf;
+then
+    echo Enhanced desktop settings already added to /etc/sysctl.conf.
+else
+    echo >> /etc/sysctl.conf
+    echo \# Enhanced desktop settings, some required by Chromium, added by freebsd-setup >> /etc/sysctl.conf
+    echo \# Thanks to https://cooltrainer.org/a-freebsd-desktop-howto/ >> /etc/sysctl.conf
+    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /etc/sysctl.conf
+    echo kern.ipc.shmmax=67108864 >> /etc/sysctl.conf
+    echo kern.ipc.shmall=32768 >> /etc/sysctl.conf
+    echo kern.sched.preempt_thresh=224 >> /etc/sysctl.conf
+    echo kern.maxfiles=200000 >> /etc/sysctl.conf
+    echo kern.ipc.shm_allow_removed=1 >> /etc/sysctl.conf
+    echo >> /etc/sysctl.conf
 fi
 
 portmaster lang/sbcl
