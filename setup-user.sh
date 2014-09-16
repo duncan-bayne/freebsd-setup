@@ -2,7 +2,8 @@
 
 set -e
 
-./install_rbenv.sh
+./install-rbenv.sh
+./install-stumpwm.sh
 
 git config --global push.default matching
 
