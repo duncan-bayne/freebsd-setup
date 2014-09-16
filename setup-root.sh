@@ -14,9 +14,9 @@ cd /usr/ports/ports-mgmt/portmaster
 make clean install
 
 portmaster x11/xorg
-postmaster x11-drivers/xf86-input-keyboard
-postmaster x11-drivers/xf86-input-mouse
-postmaster lang/sbcl
+portmaster x11-drivers/xf86-input-keyboard
+portmaster x11-drivers/xf86-input-mouse
+portmaster lang/sbcl
 
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/rc.conf;
 then
