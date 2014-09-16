@@ -11,7 +11,7 @@
 
 (defcommand terminal () ()
   "Start terminator unless it is already running, in which case focus it."
-  (run-or-raise "terminator" '(:class "Terminator")))
+  (run-or-raise "xterm" '(:class "XTerm")))
 
 (let ((home (sb-unix::posix-getenv "HOME")))
 
