@@ -1,0 +1,27 @@
+;; Hey, Emacs! This is a -*- lisp -*- file!
+(in-package :stumpwm)
+
+(defcommand firefox () ()
+  "Start Firefox unless it is already running, in which case focus it."
+  (run-or-raise "firefox" '(:class "Firefox")))
+
+(defcommand chromium () ()
+  "Start Chromium unless it is already running, in which case focus it."
+  (run-or-raise "chrome" '(:class "Chromium-browser")))
+
+(defcommand terminal () ()
+  "Start terminator unless it is already running, in which case focus it."
+  (run-or-raise "terminator" '(:class "Terminator")))
+
+(let ((home (sb-unix::posix-getenv "HOME")))
+
+  ;; my hotkeys (thanks in part to http://stumpwm.svkt.org/cgi-bin/wiki.pl)
+  (define-key *root-map* (kbd "DEL") "quit")
+  (define-key *root-map* (kbd "d") "firefox")
+  (define-key *root-map* (kbd "D") "chromium")
+  (define-key *root-map* (kbd "c") "terminal")
+
+  ;; swap CAPS and CTRL
+  (run-shell-command "setxkbmap -option ctrl:swapcaps"))
+
+(setq *window-format* "%n%s%80t [%20c]")

@@ -19,3 +19,5 @@ else
     echo . ~/freebsd-setup/conf/shell/shell_extras.sh >> ~/.profile
     echo >> ~/.profile
 fi
+
+if [ ! -f ~/.stumpwmrc ]; then ln -s ~/freebsd-setup/conf/stumpwm/stumpwmrc ~/.stumpwmrc; fi
