@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -e
+
+setxkbmap -option
+setxkbmap -option ctrl:swapcaps
