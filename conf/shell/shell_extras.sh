@@ -20,3 +20,8 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 export LC_ALL="en_AU.UTF-8"
+
+# some .profile overrides
+BLOCKSIZE=K;	export BLOCKSIZE
+EDITOR=emacs; export EDITOR
+PAGER=less;  	export PAGER
