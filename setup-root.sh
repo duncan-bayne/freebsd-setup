@@ -39,6 +39,7 @@ portmaster lang/sbcl
 portmaster multimedia/vlc
 portmaster net/unison
 portmaster security/ccrypt
+portmaster sysutils/brasero
 portmaster www/chromium
 portmaster www/firefox
 portmaster www/links
@@ -72,5 +73,6 @@ else
     echo kern.sched.preempt_thresh=224 >> /etc/sysctl.conf
     echo kern.maxfiles=200000 >> /etc/sysctl.conf
     echo kern.ipc.shm_allow_removed=1 >> /etc/sysctl.conf
+    echo vfs.usermount=1 >> /etc/sysctl.conf
     echo >> /etc/sysctl.conf
 fi
