@@ -19,6 +19,18 @@ else
     echo >> ~/.profile
 fi
 
+if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" ~/.shrc;
+then
+    echo Shell confugration extras already added to ~/.shrc.
+else
+    echo Adding custom Shell setup to ~.shrc
+    echo >> ~/.shrc
+    echo \# Personal Shell configuration extras, added by freebsd-setup >> ~/.shrc
+    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> ~/.shrc
+    echo . ~/freebsd-setup/conf/shell/shell_extras.sh >> ~/.shrc
+    echo >> ~/.shrc
+fi
+
 rm -f ~/bin
 ln -s ~/freebsd-setup/conf/bin ~/bin
 
