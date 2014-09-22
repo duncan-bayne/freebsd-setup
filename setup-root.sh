@@ -33,6 +33,8 @@ portmaster databases/mysql56-client
 portmaster databases/mysql56-server
 portmaster devel/git
 portmaster editors/emacs
+portmaster editors/libreoffice
+portmaster ftp/wget
 portmaster graphics/ImageMagick
 portmaster lang/ruby21
 portmaster lang/sbcl
