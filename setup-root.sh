@@ -52,13 +52,14 @@ portmaster x11/xorg
 
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/rc.conf;
 then
-    echo Xorg services already added to /etc/rc.conf.
+    echo Xorg, USB services already added to /etc/rc.conf.
 else
     echo >> /etc/rc.conf
-    echo \# Xorg services, added by freebsd-setup >> /etc/rc.conf
+    echo \# Xorg and USB services, added by freebsd-setup >> /etc/rc.conf
     echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /etc/rc.conf
     echo hald_enable=\"YES\" >> /etc/rc.conf
     echo dbus_enable=\"YES\" >> /etc/rc.conf
+    echo devfs_system_ruleset=\"usb_devices\" >> /etc/rc.conf
     echo >> /etc/rc.conf
 fi
 
@@ -78,3 +79,35 @@ else
     echo vfs.usermount=1 >> /etc/sysctl.conf
     echo >> /etc/sysctl.conf
 fi
+
+echo Adding group and config for USB access...
+pw groupadd usb
+touch /etc/devfs.rules
+if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/devfs.rules;
+then
+    echo Enhanced desktop settings already added to /etc/devfs.rules.
+else
+    echo >> /etc/devfs.rules
+    echo \# USB access for non-root users, added by freebsd-setup >> /etc/devfs.rules
+    echo \# Thanks to http://mcuee.blogspot.com.au/2007/11/setting-up-permissions-for-usb-ports-to.html >> /etc/devfs.rules
+    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /etc/devfs.rules
+    echo [usb_devices=10] >> /etc/devfs.rules
+    echo add path \'ugen*\' mode 0660 group usb >> /etc/devfs.rules
+    echo add path \'da*s*\' mode 0660 group usb >> /etc/devfs.rules
+    echo >> /etc/devfs.rules
+fi
+if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/devfs.conf;
+then
+    echo Enhanced desktop settings already added to /etc/devfs.conf.
+else
+    echo >> /etc/devfs.conf
+    echo \# USB access for non-root users, added by freebsd-setup >> /etc/devfs.conf
+    echo \# Thanks to http://mcuee.blogspot.com.au/2007/11/setting-up-permissions-for-usb-ports-to.html >> /etc/devfs.conf
+    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /etc/devfs.conf
+    echo perm usb0 0660 >> /etc/devfs.conf
+    echo own usb0 root:usb >> /etc/devfs.conf
+    echo perm usb1 0660 >> /etc/devfs.conf
+    echo own usb1 root:usb >> /etc/devfs.conf
+    echo >> /etc/devfs.conf
+fi
+

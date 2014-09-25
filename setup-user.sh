@@ -35,3 +35,6 @@ rm -f ~/bin
 ln -s ~/freebsd-setup/conf/bin ~/bin
 
 if [ ! -f ~/.stumpwmrc ]; then ln -s ~/freebsd-setup/conf/stumpwm/stumpwmrc ~/.stumpwmrc; fi
+
+echo Adding $USER to usb group...
+sudo pw groupmod usb -M $USER
