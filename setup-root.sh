@@ -31,6 +31,7 @@ echo Installing and configuring ports...
 portmaster databases/freetds
 portmaster databases/mysql56-client
 portmaster databases/mysql56-server
+portmaster devel/cunit
 portmaster devel/git
 portmaster devel/shtool
 portmaster editors/emacs
