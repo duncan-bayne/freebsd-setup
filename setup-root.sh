@@ -32,6 +32,7 @@ portmaster databases/freetds
 portmaster databases/mysql56-client
 portmaster databases/mysql56-server
 portmaster devel/git
+portmaster devel/shtool
 portmaster editors/emacs
 portmaster editors/libreoffice
 portmaster ftp/wget
