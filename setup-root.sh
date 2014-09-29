@@ -113,3 +113,20 @@ else
     echo >> /etc/devfs.conf
 fi
 
+echo Configuring boot splash...
+if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /boot/loader.conf;
+then
+    echo Boot splash settings already added to /boot/loader.conf
+else
+    echo >> /boot/loader.conf
+    echo \# Boot splash settings, added by freebsd-setup >> /boot/loader.conf
+    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /boot/loader.conf
+    echo loader_logo=\"freebsd-setup-logo\" >> /boot/loader.conf
+    echo >> /boot/loader.conf
+fi
+if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /boot/beastie.4th;
+then
+    echo Already using custom beastie.4th.
+else
+    cp -f conf/beastie.4th /boot/beastie.4th
+fi
