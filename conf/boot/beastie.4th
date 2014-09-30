@@ -1,3 +1,4 @@
+\ -*- coding: us-ascii -*-
 \ Copyright (c) 2003 Scott Long <scottl@freebsd.org>
 \ Copyright (c) 2003 Aleksander Fafula <alex@fafula.com>
 \ Copyright (c) 2006-2013 Devin Teske <dteske@FreeBSD.org>
@@ -40,16 +41,17 @@ variable logoY
 46 logoX !
 4  logoY !
 
-: freebsd-setup-logo ( x y -- ) \ freebsd-setup logo (8 rows x 23 columns)
+\ freebsd-setup logo (7 rows x 23 columns)
+\ thanks to http://patorjk.com/software/taag/
+: freebsd-setup-logo ( x y -- )
 
-2dup at-xy ."    _                     " 1+
-2dup at-xy ."   (_  _  _  _ |_   _  _| " 1+
-2dup at-xy ."   |  |  (- (- |_) _) (_| " 1+
-2dup at-xy ."                          " 1+
-2dup at-xy ."                          " 1+
-2dup at-xy ."    __  _  _ |_      _    " 1+
-2dup at-xy ."       _) (- |_ |_| |_)   " 1+
-     at-xy ."                    |     "
+2dup at-xy ."   _                    " 1+
+2dup at-xy ."  (_ _ _ _|_  _ _| __   " 1+
+2dup at-xy ."  | | (-(-|_)_)(_|      " 1+
+2dup at-xy ."   _ _|_    _           " 1+
+2dup at-xy ."  _)(-|_|_||_)      __  " 1+
+2dup at-xy ."           |   /|  | /| " 1+
+     at-xy ."                | .|/_| "
 
   \ Put the cursor back at the bottom
   0 25 at-xy
