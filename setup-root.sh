@@ -37,6 +37,7 @@ portmaster devel/git
 portmaster devel/shtool
 portmaster editors/emacs
 portmaster editors/libreoffice
+portmaster emulators/virtualbox-ose
 portmaster ftp/wget
 portmaster games/minecraft-client
 portmaster graphics/ImageMagick
