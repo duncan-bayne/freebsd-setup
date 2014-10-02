@@ -28,6 +28,7 @@ cd /usr/ports/ports-mgmt/portmaster
 make clean install
 
 echo Installing and configuring ports...
+portmaster audio/openal-soft
 portmaster databases/freetds
 portmaster databases/mysql56-client
 portmaster databases/mysql56-server
@@ -37,6 +38,7 @@ portmaster devel/shtool
 portmaster editors/emacs
 portmaster editors/libreoffice
 portmaster ftp/wget
+portmaster games/minecraft-client
 portmaster graphics/ImageMagick
 portmaster lang/ruby21
 portmaster lang/sbcl
@@ -82,8 +84,11 @@ else
     echo >> /etc/sysctl.conf
 fi
 
-echo Adding group and config for USB access...
+echo Adding group and config for USB and other device access...
 pw groupadd usb
+pw group mod operator -m $USER
+pw group mod pulse-access -m $USER
+pw group mod wheel -m $USER
 touch /etc/devfs.rules
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/devfs.rules;
 then
