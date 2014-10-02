@@ -41,6 +41,7 @@ portmaster emulators/virtualbox-ose
 portmaster ftp/wget
 portmaster games/minecraft-client
 portmaster graphics/ImageMagick
+portmaster lang/go
 portmaster lang/ruby21
 portmaster lang/sbcl
 portmaster multimedia/vlc
