@@ -11,7 +11,7 @@
 
 (defcommand terminal () ()
   "Start terminator unless it is already running, in which case focus it."
-  (run-or-raise "xterm" '(:class "XTerm")))
+  (run-or-raise "terminator" '(:class "Terminator")))
 
 (defcommand show-battery-state () ()
   "Shows the state of the first battery"
