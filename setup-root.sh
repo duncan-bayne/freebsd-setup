@@ -60,6 +60,7 @@ portmaster www/links
 portmaster x11-drivers/xf86-input-keyboard
 portmaster x11-drivers/xf86-input-mouse
 portmaster x11/terminator
+portmaster x11/xclip
 portmaster x11/xorg
 
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/rc.conf;
