@@ -29,7 +29,7 @@ make clean install
 
 echo Configuring 32-bit stuff for Virtualbox...
 cd /usr/src
-make build32 install32
+make toolchain build32 install32
 /etc/rc.d/ldconfig restart
 
 echo Installing and configuring ports...
