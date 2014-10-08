@@ -2,9 +2,6 @@
 
 set -e
 
-# don't put this in /etc/make.conf; I think we could, but hilarity might ensure later :-|
-export BATCH=yes
-
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/make.conf;
 then
     echo Custom build options already added to /etc/make.conf.
@@ -13,6 +10,7 @@ else
     echo \# Custom build options, added by freebsd-setup >> /etc/make.conf
     echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /etc/make.conf
     echo WITH_NEW_XORG=\"YES\" >> /etc/make.conf
+    echo BATCH=\"YES\" >> /etc/make.conf
     echo >> /etc/make.conf
 fi
 
