@@ -9,8 +9,9 @@ else
     echo >> /etc/make.conf
     echo \# Custom build options, added by freebsd-setup >> /etc/make.conf
     echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /etc/make.conf
-    echo WITH_NEW_XORG=\"YES\" >> /etc/make.conf
-    echo BATCH=\"YES\" >> /etc/make.conf
+    echo WITH_KMS=yes >> /etc/make.conf
+    echo WITH_NEW_XORG=yes >> /etc/make.conf
+    echo BATCH=yes >> /etc/make.conf
     echo >> /etc/make.conf
 fi
 
