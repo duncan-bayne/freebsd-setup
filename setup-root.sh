@@ -53,6 +53,7 @@ portmaster lang/sbcl
 portmaster multimedia/vlc
 portmaster net/unison
 portmaster security/ccrypt
+portmaster shells/zsh
 portmaster sysutils/brasero
 portmaster www/chromium
 portmaster www/firefox

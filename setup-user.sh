@@ -7,28 +7,16 @@ set -e
 
 git config --global push.default matching
 
-if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" ~/.profile;
+if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" ~/.zshrc
 then
-    echo Shell confugration extras already added to ~/.profile.
+    echo Shell confugration extras already added to ~/.zshrc.
 else
-    echo Adding custom Shell setup to ~/profile
-    echo >> ~/.profile
-    echo \# Personal Shell configuration extras, added by freebsd-setup >> ~/.profile
-    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> ~/.profile
-    echo . ~/freebsd-setup/conf/shell/shell_extras.sh >> ~/.profile
-    echo >> ~/.profile
-fi
-
-if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" ~/.shrc;
-then
-    echo Shell confugration extras already added to ~/.shrc.
-else
-    echo Adding custom Shell setup to ~.shrc
-    echo >> ~/.shrc
-    echo \# Personal Shell configuration extras, added by freebsd-setup >> ~/.shrc
-    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> ~/.shrc
-    echo . ~/freebsd-setup/conf/shell/shell_extras.sh >> ~/.shrc
-    echo >> ~/.shrc
+    echo Adding custom Shell setup to ~.zshrc
+    echo >> ~/.zshrc
+    echo \# Personal Shell configuration extras, added by freebsd-setup >> ~/.zshrc
+    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> ~/.zshrc
+    echo . ~/freebsd-setup/conf/shell/shell_extras.sh >> ~/.zshrc
+    echo >> ~/.zshrc
 fi
 
 rm -f ~/bin
@@ -38,3 +26,6 @@ if [ ! -f ~/.stumpwmrc ]; then ln -s ~/freebsd-setup/conf/stumpwm/stumpwmrc ~/.s
 
 echo Adding $USER to usb group...
 sudo pw groupmod usb -M $USER
+
+echo Switching to zsh...
+chsh -s /usr/local/bin/zsh
