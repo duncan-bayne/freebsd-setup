@@ -15,6 +15,9 @@ echo Installing SVN...
 cd /usr/ports/devel/subversion
 make clean install
 
+echo Installing packages due to some temporarily broken ports...
+pkg install cmake
+
 echo Installing and configuring ports...
 portmaster audio/openal-soft
 portmaster databases/freetds
