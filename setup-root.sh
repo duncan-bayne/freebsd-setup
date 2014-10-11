@@ -20,10 +20,6 @@ echo Installing SVN...
 cd /usr/ports/devel/subversion
 make clean install
 
-echo Installing portmaster...
-cd /usr/ports/ports-mgmt/portmaster
-make clean install
-
 echo Configuring 32-bit stuff for Virtualbox...
 cd /usr/src
 make toolchain build32 install32
