@@ -2,28 +2,18 @@
 
 set -e
 
+echo Configuring build options...
 touch /etc/make.conf
-if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/make.conf;
-then
-    echo Custom build options already added to /etc/make.conf.
-else
-    echo >> /etc/make.conf
-    echo \# Custom build options, added by freebsd-setup >> /etc/make.conf
-    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /etc/make.conf
-    echo WITH_KMS=yes >> /etc/make.conf
-    echo WITH_NEW_XORG=yes >> /etc/make.conf
-    echo BATCH=yes >> /etc/make.conf
-    echo >> /etc/make.conf
-fi
+echo >> /etc/make.conf
+echo \# Custom build options, added by freebsd-setup >> /etc/make.conf
+echo WITH_KMS=yes >> /etc/make.conf
+echo WITH_NEW_XORG=yes >> /etc/make.conf
+echo BATCH=yes >> /etc/make.conf
+echo >> /etc/make.conf
 
 echo Installing SVN...
 cd /usr/ports/devel/subversion
 make clean install
-
-echo Configuring 32-bit stuff for Virtualbox...
-cd /usr/src
-make toolchain build32 install32
-/etc/rc.d/ldconfig restart
 
 echo Installing and configuring ports...
 portmaster audio/openal-soft
@@ -36,7 +26,6 @@ portmaster devel/mercurial
 portmaster devel/shtool
 portmaster editors/emacs
 portmaster editors/libreoffice
-portmaster emulators/virtualbox-ose
 portmaster ftp/wget
 portmaster games/minecraft-client
 portmaster graphics/ImageMagick
@@ -59,88 +48,64 @@ portmaster x11/xbrightness
 portmaster x11/xclip
 portmaster x11/xorg
 
+echo Configuring Virtualbox...
+cd /usr/src
+make toolchain build32 install32
+/etc/rc.d/ldconfig restart
+portmaster emulators/virtualbox-ose
+
+echo Configuring Xorg and USB...
+
 touch /etc/rc.conf
-if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/rc.conf;
-then
-    echo Xorg, USB services already added to /etc/rc.conf.
-else
-    echo >> /etc/rc.conf
-    echo \# Xorg and USB services, added by freebsd-setup >> /etc/rc.conf
-    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /etc/rc.conf
-    echo hald_enable=\"YES\" >> /etc/rc.conf
-    echo dbus_enable=\"YES\" >> /etc/rc.conf
-    echo devfs_system_ruleset=\"usb_devices\" >> /etc/rc.conf
-    echo >> /etc/rc.conf
-fi
+echo >> /etc/rc.conf
+echo \# Xorg and USB services, added by freebsd-setup >> /etc/rc.conf
+echo hald_enable=\"YES\" >> /etc/rc.conf
+echo dbus_enable=\"YES\" >> /etc/rc.conf
+echo devfs_system_ruleset=\"usb_devices\" >> /etc/rc.conf
+echo >> /etc/rc.conf
 
-touch /etc/sysctl.conf
-if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/sysctl.conf;
-then
-    echo Enhanced desktop settings already added to /etc/sysctl.conf.
-else
-    echo >> /etc/sysctl.conf
-    echo \# Enhanced desktop settings, some required by Chromium, added by freebsd-setup >> /etc/sysctl.conf
-    echo \# Thanks to https://cooltrainer.org/a-freebsd-desktop-howto/ >> /etc/sysctl.conf
-    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /etc/sysctl.conf
-    echo kern.ipc.shmmax=67108864 >> /etc/sysctl.conf
-    echo kern.ipc.shmall=32768 >> /etc/sysctl.conf
-    echo kern.sched.preempt_thresh=224 >> /etc/sysctl.conf
-    echo kern.maxfiles=200000 >> /etc/sysctl.conf
-    echo kern.ipc.shm_allow_removed=1 >> /etc/sysctl.conf
-    echo vfs.usermount=1 >> /etc/sysctl.conf
-    echo >> /etc/sysctl.conf
-fi
+echo >> /etc/devfs.rules
+echo \# USB access for non-root users, added by freebsd-setup >> /etc/devfs.rules
+echo \# Thanks to http://mcuee.blogspot.com.au/2007/11/setting-up-permissions-for-usb-ports-to.html >> /etc/devfs.rules
+echo [usb_devices=10] >> /etc/devfs.rules
+echo add path \'ugen*\' mode 0660 group usb >> /etc/devfs.rules
+echo add path \'da*s*\' mode 0660 group usb >> /etc/devfs.rules
+echo >> /etc/devfs.rules
 
-echo Adding group and config for USB and other device access...
 touch /etc/devfs.rules
 touch /etc/devfs.conf
 pw groupadd usb
 pw group mod operator -m $USER
 pw group mod pulse-access -m $USER
 pw group mod wheel -m $USER
-if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/devfs.rules;
-then
-    echo Enhanced desktop settings already added to /etc/devfs.rules.
-else
-    echo >> /etc/devfs.rules
-    echo \# USB access for non-root users, added by freebsd-setup >> /etc/devfs.rules
-    echo \# Thanks to http://mcuee.blogspot.com.au/2007/11/setting-up-permissions-for-usb-ports-to.html >> /etc/devfs.rules
-    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /etc/devfs.rules
-    echo [usb_devices=10] >> /etc/devfs.rules
-    echo add path \'ugen*\' mode 0660 group usb >> /etc/devfs.rules
-    echo add path \'da*s*\' mode 0660 group usb >> /etc/devfs.rules
-    echo >> /etc/devfs.rules
-fi
-if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/devfs.conf;
-then
-    echo Enhanced desktop settings already added to /etc/devfs.conf.
-else
-    echo >> /etc/devfs.conf
-    echo \# USB access for non-root users, added by freebsd-setup >> /etc/devfs.conf
-    echo \# Thanks to http://mcuee.blogspot.com.au/2007/11/setting-up-permissions-for-usb-ports-to.html >> /etc/devfs.conf
-    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /etc/devfs.conf
-    echo perm usb0 0660 >> /etc/devfs.conf
-    echo own usb0 root:usb >> /etc/devfs.conf
-    echo perm usb1 0660 >> /etc/devfs.conf
-    echo own usb1 root:usb >> /etc/devfs.conf
-    echo >> /etc/devfs.conf
-fi
+
+echo Desktop settings...
+touch /etc/sysctl.conf
+echo >> /etc/sysctl.conf
+echo \# Enhanced desktop settings, some required by Chromium, added by freebsd-setup >> /etc/sysctl.conf
+echo \# Thanks to https://cooltrainer.org/a-freebsd-desktop-howto/ >> /etc/sysctl.conf
+echo kern.ipc.shmmax=67108864 >> /etc/sysctl.conf
+echo kern.ipc.shmall=32768 >> /etc/sysctl.conf
+echo kern.sched.preempt_thresh=224 >> /etc/sysctl.conf
+echo kern.maxfiles=200000 >> /etc/sysctl.conf
+echo kern.ipc.shm_allow_removed=1 >> /etc/sysctl.conf
+echo vfs.usermount=1 >> /etc/sysctl.conf
+echo >> /etc/sysctl.conf
+
+echo Adding group and config for USB and other device access...
+echo >> /etc/devfs.conf
+echo \# USB access for non-root users, added by freebsd-setup >> /etc/devfs.conf
+echo \# Thanks to http://mcuee.blogspot.com.au/2007/11/setting-up-permissions-for-usb-ports-to.html >> /etc/devfs.conf
+echo perm usb0 0660 >> /etc/devfs.conf
+echo own usb0 root:usb >> /etc/devfs.conf
+echo perm usb1 0660 >> /etc/devfs.conf
+echo own usb1 root:usb >> /etc/devfs.conf
+echo >> /etc/devfs.conf
 
 echo Configuring boot splash...
 touch /boot/loader.conf
-if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /boot/loader.conf;
-then
-    echo Boot splash settings already added to /boot/loader.conf
-else
-    echo >> /boot/loader.conf
-    echo \# Boot splash settings, added by freebsd-setup >> /boot/loader.conf
-    echo \# 037b7c29-5804-43e2-8054-d1ebfb0f3293 >> /boot/loader.conf
-    echo loader_logo=\"freebsd-setup-logo\" >> /boot/loader.conf
-    echo >> /boot/loader.conf
-fi
-if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /boot/beastie.4th;
-then
-    echo Already using custom beastie.4th.
-else
-    cp -f conf/beastie.4th /boot/beastie.4th
-fi
+echo >> /boot/loader.conf
+echo \# Boot splash settings, added by freebsd-setup >> /boot/loader.conf
+echo loader_logo=\"freebsd-setup-logo\" >> /boot/loader.conf
+echo >> /boot/loader.conf
+cp -f conf/beastie.4th /boot/beastie.4th
