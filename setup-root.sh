@@ -2,6 +2,7 @@
 
 set -e
 
+touch /etc/make.conf
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/make.conf;
 then
     echo Custom build options already added to /etc/make.conf.
@@ -65,6 +66,7 @@ portmaster x11/xbrightness
 portmaster x11/xclip
 portmaster x11/xorg
 
+touch /etc/rc.conf
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/rc.conf;
 then
     echo Xorg, USB services already added to /etc/rc.conf.
@@ -78,6 +80,7 @@ else
     echo >> /etc/rc.conf
 fi
 
+touch /etc/sysctl.conf
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/sysctl.conf;
 then
     echo Enhanced desktop settings already added to /etc/sysctl.conf.
@@ -96,11 +99,12 @@ else
 fi
 
 echo Adding group and config for USB and other device access...
+touch /etc/devfs.rules
+touch /etc/devfs.conf
 pw groupadd usb
 pw group mod operator -m $USER
 pw group mod pulse-access -m $USER
 pw group mod wheel -m $USER
-touch /etc/devfs.rules
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /etc/devfs.rules;
 then
     echo Enhanced desktop settings already added to /etc/devfs.rules.
@@ -130,6 +134,7 @@ else
 fi
 
 echo Configuring boot splash...
+touch /boot/loader.conf
 if grep -q "037b7c29-5804-43e2-8054-d1ebfb0f3293" /boot/loader.conf;
 then
     echo Boot splash settings already added to /boot/loader.conf
