@@ -51,6 +51,11 @@ portmaster x11/xbrightness
 portmaster x11/xclip
 portmaster x11/xorg
 
+echo Installing fortune...
+cd /usr/src/games/fortune
+make
+make install
+
 echo Configuring Virtualbox...
 cd /usr/src
 make toolchain build32 install32
