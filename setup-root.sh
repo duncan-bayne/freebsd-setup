@@ -18,6 +18,7 @@ make clean install
 echo Installing packages due to some temporarily broken ports...
 pkg install cmake
 
+# TODO - use packages instead
 echo Installing and configuring ports...
 portmaster audio/openal-soft
 portmaster databases/freetds
@@ -50,6 +51,8 @@ portmaster x11/terminator
 portmaster x11/xbrightness
 portmaster x11/xclip
 portmaster x11/xorg
+
+pkg install rsync
 
 echo Installing fortune...
 cd /usr/src/games/fortune
