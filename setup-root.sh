@@ -53,6 +53,10 @@ portmaster x11/xclip
 portmaster x11/xorg
 
 pkg install rsync
+pkg install cups
+pkg install print/cups-smb-backend
+pkg install print/gutenberg-cups
+pkg install print/hplip
 
 echo Installing fortune...
 cd /usr/src/games/fortune
@@ -120,3 +124,18 @@ echo \# Boot splash settings, added by freebsd-setup >> /boot/loader.conf
 echo loader_logo=\"freebsd-setup-logo\" >> /boot/loader.conf
 echo >> /boot/loader.conf
 cp -f conf/beastie.4th /boot/beastie.4th
+
+echo Configuring CUPS...
+echo >> /etc/rc.conf
+echo \# CUPS configuration, added by freebsd-setup >> /etc/rc.conf
+echo cupsd_enable="YES" >> /etc/rc.conf
+echo devfs_system_ruleset="system" >> /etc/rc.conf
+
+echo >> /etc/devfs.rules
+echo \# CUPS configuration, added by freebsd-setup >> /etc/devfs.rules
+echo [system=10] >> /etc/devfs.rules
+echo add path \'unlpt*\' mode 0660 group cups >> /etc/devfs.rules
+echo add path \'ulpt*\' mode 0660 group cups >> /etc/devfs.rules
+echo add path \'lpt*\' mode 0660 group cups >> /etc/devfs.rules
+
+touch /usr/local/etc/smb.conf
