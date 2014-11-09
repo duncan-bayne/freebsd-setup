@@ -52,11 +52,13 @@ portmaster x11/xbrightness
 portmaster x11/xclip
 portmaster x11/xorg
 
-pkg install rsync
 pkg install cups
+pkg install i386-wine
 pkg install print/cups-smb-backend
 pkg install print/gutenberg-cups
 pkg install print/hplip
+pkg install rsync
+pkg install xmixer
 
 echo Installing fortune...
 cd /usr/src/games/fortune
