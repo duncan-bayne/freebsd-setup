@@ -11,54 +11,48 @@ echo WITH_NEW_XORG=yes >> /etc/make.conf
 echo BATCH=yes >> /etc/make.conf
 echo >> /etc/make.conf
 
-echo Installing SVN...
-cd /usr/ports/devel/subversion
-make clean install
+echo Installing and configuring X, StumpWM and dependencies...
+pkg install -y xorg
+pkg install -y x11-drivers/xf86-input-keyboard
+pkg install -y x11-drivers/xf86-input-mouse
+pkg install -y xbrightness
+pkg install -y xclip
+pkg install -y xmixer
+pkg install -y sbcl
+./install-stumpwm.sh
 
-echo Installing packages due to some temporarily broken ports...
-pkg install cmake
-
-# TODO - use packages instead
-echo Installing and configuring ports...
-portmaster audio/openal-soft
-portmaster databases/freetds
-portmaster databases/mysql56-client
-portmaster databases/mysql56-server
-portmaster devel/cunit
-portmaster devel/git
-portmaster devel/mercurial
-portmaster devel/shtool
-portmaster editors/emacs
-portmaster editors/libreoffice
-portmaster ftp/wget
-portmaster games/minecraft-client
-portmaster graphics/ImageMagick
-portmaster graphics/xpdf
-portmaster lang/go
-portmaster lang/ruby21
-portmaster lang/sbcl
-portmaster multimedia/vlc
-portmaster net/unison
-portmaster security/ccrypt
-portmaster shells/zsh
-portmaster sysutils/brasero
-portmaster www/chromium
-portmaster www/firefox
-portmaster www/links
-portmaster x11-drivers/xf86-input-keyboard
-portmaster x11-drivers/xf86-input-mouse
-portmaster x11/terminator
-portmaster x11/xbrightness
-portmaster x11/xclip
-portmaster x11/xorg
-
-pkg install cups
-pkg install i386-wine
-pkg install print/cups-smb-backend
-pkg install print/gutenberg-cups
-pkg install print/hplip
-pkg install rsync
-pkg install xmixer
+echo Installing miscellaneous packages...
+pkg install -y ccrypt
+pkg install -y chromium
+pkg install -y cmake
+pkg install -y cunit
+pkg install -y cups
+pkg install -y firefox
+pkg install -y freetds
+pkg install -y git
+pkg install -y go
+pkg install -y i386-wine
+pkg install -y ImageMagick
+pkg install -y libreoffice
+pkg install -y links
+pkg install -y mercurial
+pkg install -y minecraft-client
+pkg install -y mysql56-client
+pkg install -y mysql56-server
+pkg install -y openal-soft
+pkg install -y print/cups-smb-backend
+pkg install -y print/gutenberg-cups
+pkg install -y print/hplip
+pkg install -y rsync
+pkg install -y ruby21
+pkg install -y shtool
+pkg install -y subversion
+pkg install -y terminator
+pkg install -y unison
+pkg install -y vlc
+pkg install -y wget
+pkg install -y xpdf
+pkg install -y zsh
 
 echo Installing fortune...
 cd /usr/src/games/fortune
@@ -69,7 +63,7 @@ echo Configuring Virtualbox...
 cd /usr/src
 make toolchain build32 install32
 /etc/rc.d/ldconfig restart
-portmaster emulators/virtualbox-ose
+pkg install -y virtualbox-ose
 
 ./setup-xorg-usb-desktop.sh
 
