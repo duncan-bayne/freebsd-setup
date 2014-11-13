@@ -49,6 +49,7 @@ pkg install -y shtool
 pkg install -y subversion
 pkg install -y terminator
 pkg install -y unison
+pkg install -y virtualbox-ose
 pkg install -y vlc
 pkg install -y wget
 pkg install -y xpdf
@@ -60,10 +61,10 @@ make
 make install
 
 echo Configuring Virtualbox...
-cd /usr/src
-make toolchain build32 install32
-/etc/rc.d/ldconfig restart
-pkg install -y virtualbox-ose
+echo >> /etc/rc.conf
+echo \# VirtualBox settings, added by freebsd-setup >> /etc/rc.conf
+echo vboxnet_enable=\"YES\" >> /etc/rc.conf
+echo >> /etc/rc.conf
 
 ./setup-xorg-usb-desktop.sh
 
