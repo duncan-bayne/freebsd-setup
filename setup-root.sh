@@ -50,6 +50,8 @@ pkg install -y subversion
 pkg install -y terminator
 pkg install -y unison
 pkg install -y virtualbox-ose
+pkg install -y virtualbox-ose-additions
+pkg install -y virtualbox-ose-kmod
 pkg install -y vlc
 pkg install -y wget
 pkg install -y xpdf
