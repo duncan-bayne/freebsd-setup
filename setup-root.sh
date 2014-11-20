@@ -84,3 +84,9 @@ echo Configuring cdrecord for non-root access...
 chown root /usr/local/bin/cdrecord
 chmod 4711 /usr/local/bin/cdrecord
 
+echo Enabling NTP...
+echo >> /etc/rc.conf
+echo \# NPT settings, added by freebsd-setup >> /etc/rc.conf
+echo ntpd_enable=\"YES\" >> /etc/rc.conf
+echo ntpdate_enable=\"YES\" >> /etc/rc.conf
+echo >> /etc/rc.conf
