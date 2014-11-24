@@ -25,3 +25,6 @@ export LC_ALL="en_AU.UTF-8"
 BLOCKSIZE=K;	export BLOCKSIZE
 EDITOR=emacs; export EDITOR
 PAGER=less;  	export PAGER
+
+echo
+fortune
