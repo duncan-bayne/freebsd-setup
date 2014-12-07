@@ -11,6 +11,13 @@ echo WITH_NEW_XORG=yes >> /etc/make.conf
 echo BATCH=yes >> /etc/make.conf
 echo >> /etc/make.conf
 
+echo Installing some initially useful packages...
+pkg install -y git
+pkg install -y links
+pkg install -y subversion
+pkg install -y terminator
+pkg install -y wget
+
 echo Installing and configuring X, StumpWM and dependencies...
 pkg install -y xorg
 pkg install -y x11-drivers/xf86-input-keyboard
@@ -29,12 +36,10 @@ pkg install -y cunit
 pkg install -y cups
 pkg install -y firefox
 pkg install -y freetds
-pkg install -y git
 pkg install -y go
 pkg install -y i386-wine
 pkg install -y ImageMagick
 pkg install -y libreoffice
-pkg install -y links
 pkg install -y mercurial
 pkg install -y minecraft-client
 pkg install -y mysql56-client
@@ -46,14 +51,11 @@ pkg install -y print/hplip
 pkg install -y rsync
 pkg install -y ruby21
 pkg install -y shtool
-pkg install -y subversion
-pkg install -y terminator
 pkg install -y unison
 pkg install -y virtualbox-ose
 pkg install -y virtualbox-ose-additions
 pkg install -y virtualbox-ose-kmod
 pkg install -y vlc
-pkg install -y wget
 pkg install -y xpdf
 pkg install -y zsh
 
