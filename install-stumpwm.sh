@@ -2,6 +2,7 @@
 
 set -e
 
+pkg install -y autoconf
 pkg install -y gmake
 portmaster lang/sbcl
 
