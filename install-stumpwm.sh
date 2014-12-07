@@ -3,6 +3,7 @@
 set -e
 
 rm -rf ~/sbcl-install
+mkdir ~/sbcl-install
 cd ~/sbcl-install
 wget http://aarnet.dl.sourceforge.net/project/sbcl/sbcl/1.2.6/sbcl-1.2.6-source.tar.bz2
 bunzip2 sbcl-1.2.6-source.tar.bz2
