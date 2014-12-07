@@ -25,7 +25,6 @@ pkg install -y x11-drivers/xf86-input-mouse
 pkg install -y xbrightness
 pkg install -y xclip
 pkg install -y xmixer
-pkg install -y sbcl
 ./install-stumpwm.sh
 
 echo Installing miscellaneous packages...
