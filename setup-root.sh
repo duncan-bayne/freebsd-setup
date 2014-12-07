@@ -90,3 +90,6 @@ echo \# NPT settings, added by freebsd-setup >> /etc/rc.conf
 echo ntpd_enable=\"YES\" >> /etc/rc.conf
 echo ntpdate_enable=\"YES\" >> /etc/rc.conf
 echo >> /etc/rc.conf
+
+echo Installing Skype...
+portmaster net-im/skype
