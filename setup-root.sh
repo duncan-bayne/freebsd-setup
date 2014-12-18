@@ -45,7 +45,7 @@ pkg install -y mysql56-client
 pkg install -y mysql56-server
 pkg install -y openal-soft
 pkg install -y print/cups-smb-backend
-pkg install -y print/gutenberg-cups
+pkg install -y print/gutenprint-cups
 pkg install -y print/hplip
 pkg install -y rsync
 pkg install -y ruby21
