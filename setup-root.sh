@@ -94,4 +94,5 @@ echo ntpdate_enable=\"YES\" >> /etc/rc.conf
 echo >> /etc/rc.conf
 
 echo Installing Skype...
+kldload linux
 portmaster net-im/skype
