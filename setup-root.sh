@@ -62,6 +62,7 @@ echo Installing fortune...
 cd /usr/src/games/fortune
 make
 make install
+cd ~/freebsd-setup
 
 echo Configuring Virtualbox...
 echo >> /etc/rc.conf
