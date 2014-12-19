@@ -24,7 +24,6 @@ touch /etc/devfs.rules
 touch /etc/devfs.conf
 pw groupadd usb
 pw group mod operator -m $USER
-pw group mod pulse-access -m $USER
 pw group mod wheel -m $USER
 
 echo Desktop settings...
