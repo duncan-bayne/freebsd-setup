@@ -78,7 +78,7 @@ echo >> /boot/loader.conf
 echo \# Boot splash settings, added by freebsd-setup >> /boot/loader.conf
 echo loader_logo=\"freebsd-setup-logo\" >> /boot/loader.conf
 echo >> /boot/loader.conf
-cp -f conf/beastie.4th /boot/beastie.4th
+cp -f conf/boot/beastie.4th /boot/beastie.4th
 
 ./setup-printing.sh
 
