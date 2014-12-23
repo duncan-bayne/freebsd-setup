@@ -12,8 +12,8 @@ eval "$(rbenv init -)"
 
 echo Installing Ruby 2.0.0 with rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 2.0.0-p481
-rbenv global 2.0.0-p481
+rbenv install 2.0.0-p598
+rbenv global 2.0.0-p598
 gem install bundler
 rbenv rehash
 
