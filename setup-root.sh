@@ -75,13 +75,14 @@ echo >> /etc/rc.conf
 
 ./setup-xorg-usb-desktop.sh
 
-echo Configuring boot splash...
-touch /boot/loader.conf
-echo >> /boot/loader.conf
-echo \# Boot splash settings, added by freebsd-setup >> /boot/loader.conf
-echo loader_logo=\"freebsd-setup-logo\" >> /boot/loader.conf
-echo >> /boot/loader.conf
-cp -f conf/boot/beastie.4th /boot/beastie.4th
+# TODO: enable this, after fixing beastie.4th
+# echo Configuring boot splash...
+# touch /boot/loader.conf
+# echo >> /boot/loader.conf
+# echo \# Boot splash settings, added by freebsd-setup >> /boot/loader.conf
+# echo loader_logo=\"freebsd-setup-logo\" >> /boot/loader.conf
+# echo >> /boot/loader.conf
+# cp -f conf/boot/beastie.4th /boot/beastie.4th
 
 ./setup-printing.sh
 
