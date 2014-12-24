@@ -28,6 +28,7 @@ pkg install -y xmixer
 ./install-stumpwm.sh
 
 echo Installing miscellaneous packages...
+pkg install -y autoconf
 pkg install -y ccrypt
 pkg install -y chromium
 pkg install -y cmake
@@ -35,6 +36,7 @@ pkg install -y cunit
 pkg install -y cups
 pkg install -y firefox
 pkg install -y freetds
+pkg install -y gmake
 pkg install -y go
 pkg install -y i386-wine
 pkg install -y ImageMagick
@@ -50,6 +52,7 @@ pkg install -y print/hplip
 pkg install -y rsync
 pkg install -y ruby21
 pkg install -y shtool
+pkg install -y sudo
 pkg install -y unison
 pkg install -y virtualbox-ose
 pkg install -y virtualbox-ose-additions
