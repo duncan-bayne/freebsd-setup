@@ -13,6 +13,10 @@
   "Start terminator unless it is already running, in which case focus it."
   (run-or-raise "terminator" '(:class "Terminator")))
 
+(defcommand spotify () ()
+  "Start Spotify unless it is already running, in which case focus it."
+  (run-or-raise "spotify" '(:title "Spotify")))
+
 (defcommand show-battery-state () ()
   "Shows the state of the first battery"
   (echo-string
@@ -22,16 +26,15 @@
     (run-shell-command "acpiconf -i0 | grep -i 'remaining capacity'" t)
     "")))
 
-(let ((home (sb-unix::posix-getenv "HOME")))
+;; my hotkeys (thanks in part to http://stumpwm.svkt.org/cgi-bin/wiki.pl)
+(define-key *root-map* (kbd "DEL") "quit")
+(define-key *root-map* (kbd "d") "firefox")
+(define-key *root-map* (kbd "D") "chromium")
+(define-key *root-map* (kbd "c") "terminal")
+(define-key *root-map* (kbd "B") "show-battery-state")
+(define-key *root-map* (kbd "M-s") "spotify")
 
-  ;; my hotkeys (thanks in part to http://stumpwm.svkt.org/cgi-bin/wiki.pl)
-  (define-key *root-map* (kbd "DEL") "quit")
-  (define-key *root-map* (kbd "d") "firefox")
-  (define-key *root-map* (kbd "D") "chromium")
-  (define-key *root-map* (kbd "c") "terminal")
-  (define-key *root-map* (kbd "B") "show-battery-state")
-
-  ;; swap CAPS and CTRL
-  (run-shell-command "setxkbmap -option ctrl:swapcaps"))
+;; swap CAPS and CTRL
+(run-shell-command "setxkbmap -option ctrl:swapcaps")
 
 (setq *window-format* "%n%s%80t [%20c]")

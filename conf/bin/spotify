@@ -1,0 +1,4 @@
+#!/bin/sh
+
+wine $HOME/.wine/drive_c/users/$USER/Application\ Data/Spotify/spotify.exe
+
