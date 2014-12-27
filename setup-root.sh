@@ -62,6 +62,7 @@ pkg install -y virtualbox-ose-additions
 pkg install -y virtualbox-ose-kmod
 pkg install -y vlc
 pkg install -y xpdf
+pkg install -y zenity
 pkg install -y zsh
 
 echo Installing fortune...
