@@ -37,6 +37,7 @@ pkg install -y cups
 pkg install -y editors/emacs
 pkg install -y firefox
 pkg install -y freetds
+pkg install -y gimp
 pkg install -y gmake
 pkg install -y go
 pkg install -y i386-wine
