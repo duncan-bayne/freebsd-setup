@@ -18,4 +18,4 @@ sudo pw groupmod usb -M $USER
 echo Switching to zsh and installing Oh My ZSH
 chsh -s /usr/local/bin/zsh
 curl -L http://install.ohmyz.sh | sh
-ln ~/freebsd-setup/conf/zsh/freebsd-setup.zsh $ZSH/custom/freebsd-setup.zsh
+ln ~/freebsd-setup/conf/zsh/freebsd-setup.zsh ~/.oh-my-zsh/custom/freebsd-setup.zsh
