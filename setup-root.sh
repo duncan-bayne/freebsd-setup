@@ -34,6 +34,7 @@ pkg install -y chromium
 pkg install -y cmake
 pkg install -y cunit
 pkg install -y cups
+pkg install -y editors/emacs
 pkg install -y firefox
 pkg install -y freetds
 pkg install -y gmake
