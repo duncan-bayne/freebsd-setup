@@ -29,6 +29,7 @@ pkg install -y xmixer
 
 echo Installing miscellaneous packages...
 pkg install -y autoconf
+pkg install -y cabextract
 pkg install -y ccrypt
 pkg install -y chromium
 pkg install -y cmake
