@@ -18,5 +18,6 @@ sbcl --script ./stumpwm-deps.lisp
 autoconf
 ./configure
 make
+sudo make install
 echo exec stumpwm > ~/.xinitrc
 
