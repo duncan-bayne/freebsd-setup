@@ -2,9 +2,9 @@
 
 set -e
 
-pkg install -y autoconf
-pkg install -y gmake
-portmaster lang/sbcl
+sudo pkg install -y autoconf
+sudo pkg install -y gmake
+sudo portmaster lang/sbcl
 
 rm -rf ~/stumpwm-install
 git clone https://github.com/stumpwm/stumpwm.git ~/stumpwm-install
