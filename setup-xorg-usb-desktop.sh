@@ -9,7 +9,6 @@ echo >> /etc/rc.conf
 echo \# Xorg and USB services, added by freebsd-setup >> /etc/rc.conf
 echo hald_enable=\"YES\" >> /etc/rc.conf
 echo dbus_enable=\"YES\" >> /etc/rc.conf
-echo devfs_system_ruleset=\"usb_devices\" >> /etc/rc.conf
 echo >> /etc/rc.conf
 
 echo >> /etc/devfs.rules

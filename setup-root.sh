@@ -104,3 +104,12 @@ echo >> /etc/rc.conf
 echo Installing Skype...
 kldload linux
 portmaster net-im/skype
+
+echo Configuring devfs...
+echo >> /etc/rc.conf
+echo \# Use custom rules, added by freebsd-setup >> /etc/rc.conf
+echo devfs_system_ruleset="system" >> /etc/rc.conf
+
+echo
+echo Success!
+echo

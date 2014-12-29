@@ -6,7 +6,6 @@ echo Configuring CUPS...
 echo >> /etc/rc.conf
 echo \# CUPS configuration, added by freebsd-setup >> /etc/rc.conf
 echo cupsd_enable="YES" >> /etc/rc.conf
-echo devfs_system_ruleset="system" >> /etc/rc.conf
 
 echo >> /etc/devfs.rules
 echo \# CUPS configuration, added by freebsd-setup >> /etc/devfs.rules
