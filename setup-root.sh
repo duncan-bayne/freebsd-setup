@@ -38,6 +38,7 @@ pkg install -y cups
 pkg install -y editors/emacs
 pkg install -y firefox
 pkg install -y freetds
+pkg install -y gcc
 pkg install -y gimp
 pkg install -y gmake
 pkg install -y go
@@ -61,6 +62,7 @@ pkg install -y virtualbox-ose
 pkg install -y virtualbox-ose-additions
 pkg install -y virtualbox-ose-kmod
 pkg install -y vlc
+pkg install -y v8
 pkg install -y xpdf
 pkg install -y zenity
 pkg install -y zsh
