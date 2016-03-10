@@ -18,14 +18,13 @@ pkg install -y subversion
 pkg install -y terminator
 pkg install -y wget
 
-echo Installing and configuring X, StumpWM and dependencies...
+echo Installing and configuring X, and StumpWM dependencies...
 pkg install -y xorg
 pkg install -y x11-drivers/xf86-input-keyboard
 pkg install -y x11-drivers/xf86-input-mouse
 pkg install -y xbrightness
 pkg install -y xclip
 pkg install -y xmixer
-./install-stumpwm.sh
 
 echo Installing miscellaneous packages...
 pkg install -y autoconf
