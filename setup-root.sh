@@ -56,12 +56,13 @@ pkg install -y rsync
 pkg install -y ruby21
 pkg install -y shtool
 pkg install -y sudo
+pkg install -y texinfo
 pkg install -y unison
+pkg install -y v8
 pkg install -y virtualbox-ose
 pkg install -y virtualbox-ose-additions
 pkg install -y virtualbox-ose-kmod
 pkg install -y vlc
-pkg install -y v8
 pkg install -y xpdf
 pkg install -y zenity
 pkg install -y zsh
